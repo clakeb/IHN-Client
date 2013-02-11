@@ -1,0 +1,15 @@
+/*
+ * File: _fonts.scss
+ * Description: Typography Styles
+ *
+ */
+
+ @import url(http://fonts.googleapis.com/css?family=Roboto);
+
+ body {
+ 	font-family: 'Roboto', sans-serif;
+ }
+
+ .entry-content {
+ 	line-height: 1.4em;
+ }

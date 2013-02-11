@@ -1,0 +1,435 @@
+/*
+ * File: _recover.scss
+ * Description: Style Recovery after using the Compass Reset Utility
+ *
+ */
+ 
+ /*********************************************
+			Browser Recovery
+**********************************************/
+html {
+	font-size: 16px;
+}
+
+div {
+	@include box-sizing(border-box);
+	position: relative;
+	display: block;
+
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+
+a {
+	@include unstyled-link();
+	cursor: pointer;
+}
+
+
+p {
+	display: block;
+    margin-top: 1__qem;
+    margin-bottom: 1__qem;
+}
+
+h1 {
+	display: block;
+	font-size: 2em;
+	font-weight: bold;
+}
+
+h2 {
+	display: block;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+h3 {
+	display: block;
+	font-size: 1.17em;
+	font-weight: bold;
+}
+
+h4 {
+	display: block;
+	font-weight: bold;
+}
+
+h5 {
+	display: block;
+	font-size: 0.83em;
+	font-weight: bold;
+}
+
+h6 {
+	display: block;
+	font-size: 0.67em;
+	font-weight: bold;
+}
+
+
+blockquote {
+	display: block;
+	margin-top: 1__qem;
+	margin-bottom: 1em;
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+figure {
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 40px;
+	margin-right: 40px;
+}
+
+q {
+	display: inline;
+}
+
+q:before {
+	content: open-quote;
+}
+
+q:after {
+	content: close-quote;
+}
+
+center {
+	display: block;
+	text-align: center;
+}
+
+hr {
+	display: block;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	margin-left: auto;
+	margin-right: auto;
+	border-style: inset;
+	border-width: 1px;
+}
+
+ul, menu, dir {
+	display: block;
+	list-style-type: disc;
+	margin-top: 1__qem;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	-webkit-padding-start: 40px
+}
+
+ol {
+	display: block;
+	list-style-type: decimal;
+	margin-top: 1__qem;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+	-webkit-padding-start: 40px
+}
+
+li {
+	display: list-item;
+	text-align: -webkit-match-parent;
+}
+
+li + li {
+	margin-top: 1em;
+}
+
+ul ul, ol ul {
+	list-style-type: circle
+}
+
+ol ol ul, ol ul ul, ul ol ul, ul ul ul {
+	list-style-type: square
+}
+
+dd {
+	display: block;
+	margin-left: 40px
+}
+
+dl {
+	display: block;
+	margin-top: 1__qem;
+	margin-bottom: 1em;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+dt {
+	display: block
+}
+
+ol ul, ul ol, ul ul, ol ol {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+img {
+	display: inline-block;
+}
+
+u, ins {
+	text-decoration: underline;
+}
+
+strong, b {
+	font-weight: bold;
+}
+
+i, cite, em, var, address, dfn {
+	font-style: italic;
+}
+
+tt, code, kbd, samp {
+	font-family: monospace;
+}
+
+pre, xmp, plaintext, listing {
+	display: block;
+	font-family: monospace;
+	white-space: pre;
+	margin: 1__qem 0;
+}
+
+mark {
+	background-color: yellow;
+	color: black;
+}
+
+big {
+	font-size: larger;
+}
+
+small {
+	font-size: smaller;
+}
+
+s, strike, del {
+	text-decoration: line-through;
+}
+
+sub {
+	vertical-align: sub;
+	font-size: smaller;
+}
+
+sup {
+	vertical-align: super;
+	font-size: smaller;
+}
+
+nobr {
+	white-space: nowrap;
+}
+
+
+/*********************************************
+			WordPress Core
+**********************************************/
+.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+.alignright {
+    float:right;
+    margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+.aligncenter {
+    display: block;
+    margin: 5px auto 5px auto;
+}
+
+a img.alignright {
+    float: right;
+    margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+    float: left;
+    margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.wp-caption {
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    max-width: 96%; /* Image does not overflow the content area */
+    padding: 5px 3px 10px;
+    text-align: center;
+}
+
+.wp-caption.alignnone {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+    margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+    margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+    border: 0 none;
+    height: auto;
+    margin: 0;
+    max-width: 98.5%;
+    padding: 0;
+    width: auto;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+
+/*********************************************
+			Genesis Core
+**********************************************/
+
+// Column Classes
+
+.five-sixths,
+.four-fifths,
+.four-sixths,
+.one-fifth,
+.one-fourth,
+.one-half,
+.one-sixth,
+.one-third,
+.three-fifths,
+.three-fourths,
+.three-sixths,
+.two-fifths,
+.two-fourths,
+.two-sixths,
+.two-thirds {
+	float: left;
+	margin: 0 0 20px;
+	padding-left: 3%;
+}
+
+.one-half,
+.three-sixths,
+.two-fourths {
+	width: 48%;
+}
+
+.one-third,
+.two-sixths {
+	width: 31%;
+}
+
+.four-sixths,
+.two-thirds {
+	width: 65%;
+}
+
+.one-fourth {
+	width: 22.5%;
+}
+
+.three-fourths {
+	width: 73.5%;
+}
+
+.one-fifth {
+	width: 17.4%;
+}
+
+.two-fifths {
+	width: 37.8%;
+}
+
+.three-fifths {
+	width: 58.2%;
+}
+
+.four-fifths {
+	width: 78.6%;
+}
+
+.one-sixth {
+	width: 14%;
+}
+
+.five-sixths {
+	width: 82%;
+}
+
+.first {
+	clear: both;
+	padding-left: 0;
+}
+
+
+// Featured Post Grid
+
+.genesis-grid-even {
+	float: right;
+	padding: 0 0 15px;
+	width: 48%;
+}
+
+.genesis-grid-odd {
+	clear: both;
+	float: left;
+	padding: 0 0 15px;
+	width: 48%;
+}
+
+.genesis-grid-even,
+.genesis-grid-odd {
+	margin: 0 0 20px;
+}
+
+#header, #nav, #footer-widgets, #footer {
+	h1, h2, h2 a, h3, h4, h5, h6 {
+		font-size: 1em;
+	}
+}
+
+ul.menu {
+	padding-left: 0;
+
+	li.menu-item {
+		list-style-type: none; 
+		margin-top: 0;
+		margin-left: 0;
+	}
+}

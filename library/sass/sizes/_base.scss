@@ -1,0 +1,127 @@
+/*
+ * File: _base.scss
+ * Description: Base Styles - Not dependent on device size.
+ *
+ */
+
+ html {
+ 	background: grey;
+ 	
+ 	body {
+ 		#wrap {
+ 			#header, #nav, #inner, #footer-widgets, #footer {
+ 				.wrap {
+					padding: $v_spacing 0;
+					@include container($total-columns, $phone, $phablet, $tablet, $laptop, $desktop, $smartTV);
+					// @include susy-grid-background;
+ 				}
+ 			}
+
+ 			#header {
+ 				background: #fafafa;
+ 				border-bottom: 1px solid lighten(#333, 50%);
+ 				@include box-shadow(0px 1px 8px -3px rgba(0, 0, 0, 0.4));
+ 				z-index: 5;
+
+ 				#title-area {
+ 					text-align: center;
+ 					@include span-columns(12 omega, 12);
+ 				}
+
+ 				.widget-area {
+					@include span-columns(6 omega, 12);
+					@include squish(3, 3, 12);
+ 				}
+ 			}
+
+ 			#nav {
+ 				ul.menu {
+ 					margin: 0;
+
+ 					li.menu-item {
+						text-align: center;
+						@include span-columns(4, 12);
+						@include nth-omega(3n);
+
+ 						a {
+ 							display: block;
+ 						}
+ 					}
+ 				}
+ 			}
+
+ 			#inner {
+ 				background: darken(#fafafa, 3%);
+ 				z-index: 0;
+
+ 				.asclient_navigation {
+					@include inline-block-list;
+					@include no-bullets;
+					margin: 0;
+					padding: 0;
+
+					li {
+						margin: 0;
+						padding: 0;
+						 a {
+						 	display: block;
+						 }
+					}
+ 				}
+
+ 				.alpha-heading {
+ 					clear: both;
+ 					margin: 0.5em 0;
+ 					padding: 0.5em 0;
+ 					border-bottom: 1px solid black;
+ 				}
+
+ 				#single-client-tabs {
+ 					ul {
+						@include no-bullets;
+						@include inline-block-list;
+						margin: 0;
+						padding: 0;
+						border-bottom: 1px black solid;
+	 					
+	 					li {
+							margin: 0;
+							padding: 0;
+							border: 1px black solid;
+							background: lightgrey;
+
+							a {
+								display: block;
+								padding: 0.5em;
+							}
+
+							&.ui-state-default, &.ui-widget-content &.ui-state-default, &.ui-widget-header &.ui-state-default {
+								background: lightgrey;
+							}
+
+							&.ui-tabs-active, &.ui-state-active {
+								border-width: 1px 1px 0 1px;
+								background: white;
+							}
+	 					}
+ 					}
+ 				}
+ 			}
+
+ 			#footer-widgets {
+ 				background: darken(#fafafa, 1%);
+ 				border-top: 1px solid lighten(#333, 50%);
+ 				@include box-shadow(inset 0px 1px 8px -3px rgba(0, 0, 0, 0.4));
+ 				z-index: 5;
+ 			}
+
+ 			#footer {
+ 				background: #fafafa;
+ 				border-top: 1px solid lighten(#333, 50%);
+ 				@include box-shadow(0px -1px 8px -3px rgba(0, 0, 0, 0.4));
+ 				z-index: 5;
+ 				z-index: 10;
+ 			}
+ 		}
+ 	}
+ }

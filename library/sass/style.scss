@@ -1,0 +1,166 @@
+/*!*********************************************************************************
+Theme Name: Anchor Studios Theme
+Theme URI: http://anchor.is
+Description: Anchor Studios website theme for the Genesis Framework.
+Author: Anchor Studios
+Author URI: http://anchor.is
+Version: 0.0.1
+Template: genesis
+***********************************************************************************/
+
+/*----------------------------------------------------------
+                    The Setup
+----------------------------------------------------------*/
+     // Compass Utilities
+     @import "compass";
+     @import "compass/css3";
+     @import "compass/reset";
+
+     // Dependencies
+     @import "defaults/variables";
+     @import "sassy-buttons";
+
+
+/*----------------------------------------------------------
+                    The Defaults
+----------------------------------------------------------*/
+     // Pre-Stylistic Defaults
+     @import "defaults/recover"; // Re-applies necessary styles lost from the Compass Reset (configured for WordPress).
+     @import "defaults/fonts"; // Typography
+     @import "defaults/buttons"; // Buttons
+
+
+/*----------------------------------------------------------
+                    Sprites
+----------------------------------------------------------*/
+// For more information about Compass Spriting, see this tutorial:
+// http://compass-style.org/help/tutorials/spriting/
+
+     @import "theme-sprites/*.png";
+     @include all-theme-sprites-sprites;
+     $sprite_map: sprite-map("theme-sprites/*.png");
+
+
+/*----------------------------------------------------------
+                    The Grid
+----------------------------------------------------------*/
+@import "susy";
+@include border-box-sizing;
+
+     // Default Setup
+     $total-columns: 12;
+     $column-width: 4em;
+     $gutter-width: 1em;
+     $grid-padding: $gutter-width;
+
+     // Size Variables
+     $phone: 12;
+     $phablet: 12;
+     $tablet: 12;
+     $laptop: 12;
+     $desktop: 12;
+     $smartTV: 12;
+
+
+/*----------------------------------------------------------
+                    Size Queries
+----------------------------------------------------------*/
+@import "sizes/base";
+@import "sizes/phone";
+@import "sizes/phablet";
+@import "sizes/tablet";
+@import "sizes/laptop";
+@import "sizes/desktop";
+@import "sizes/smartTV";
+
+/*----------------------------------------------------------
+                    Device Queries
+----------------------------------------------------------*/
+     // Google Nexus 7
+     @media screen and (device-width: 600px) and (device-height: 905px) and (-webkit-min-device-pixel-ratio: 1.331) and (-webkit-max-device-pixel-ratio: 1.332) {
+          @import "devices/nexus7";
+     }
+
+     // iPads 1, 2, 3, 4, & Mini
+     @media screen and (device-width: 768px) and (device-height: 1024px) {
+          @import "devices/ipad_all";
+     }
+
+     // iPad 1, 2, and Mini
+     @media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 1) {
+          @import "devices/ipad_1_2_mini";
+     }
+
+     // iPad 3 & 4
+     @media screen and (device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) {
+          @import "devices/ipad_3_4";
+     }
+
+     // iPhones 3G, 4, & 5
+     @media screen and (device-width: 320px) and (device-height: 480px) {
+          @import "devices/iphone_all";
+     }
+
+     // iPhone 3G
+     @media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1) {
+          @import "devices/iphone_3g";
+     }
+
+     // iPhone 4
+     @media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2) {
+          @import "devices/iphone_4";
+     }
+
+     // iPhone 5
+     @media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) {
+          @import "devices/iphone_5";
+     }
+
+     // Printer
+     @media print {
+          @import "devices/printer";
+     }
+
+     // 3D Screens
+     // Note: This is not supported yet.
+     // @media 3d-glasses {
+     //      @import "devices/3d_screens";
+     // }
+
+
+/*----------------------------------------------------------
+                    Browser Queries
+----------------------------------------------------------*/
+     // Internet Explorer 9 & 10
+     @media screen and (min-width:0\0) {
+
+     }
+
+     // Internet Explorer 10
+     @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+
+     }
+
+
+/*----------------------------------------------------------
+                    Resolution Queries
+----------------------------------------------------------*/
+     // Retina Display
+     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+     	@import "resolutions/_@2x"
+     }
+
+     // 1.25 dpr
+     @media (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi){ 
+     	@import "resolutions/_@1.25x"
+     }
+
+     // 1.3 dpr
+     @media (-webkit-min-device-pixel-ratio: 1.3), (min-resolution: 124.8dpi){ 
+     	@import "resolutions/_@1.3x"
+     }
+
+     // 1.5 dpr
+     @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi){ 
+     	@import "resolutions/_@1.5x"
+     }
