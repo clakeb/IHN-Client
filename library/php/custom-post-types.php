@@ -30,7 +30,7 @@ add_action( 'init', 'as_register_custom_post_types');
 				'show_in_nav_menus' => true,
 				'show_in_menu' => true,
 				'show_in_admin_bar' => true,
-				'menu_position' => null,
+				'menu_position' => 26,
 				'menu_icon' => null,
 				'map_meta_cap' => true,
 				'hierarchical' => false,
@@ -42,7 +42,81 @@ add_action( 'init', 'as_register_custom_post_types');
 			)
 		);
 
-		// Add another custom post type here.
+		register_post_type( 'ihn-coach-notes',
+			array(
+				'labels' => array(
+					'name' => 'Coaches Notes',
+					'singular_name' => 'Coaches Note',
+					'add_new' => 'Add New',
+					'add_new_item' => 'Add New Coaches Note',
+					'edit_item' => 'Edit Coaches Note',
+					'new_item' => 'New Coaches Note',
+					'all_items' => 'All Coaches Notes',
+					'view_item' => 'View Coaches Notes',
+					'search_items' => 'Search Coaches Notes',
+					'not_found' =>  'No Coaches Notes found',
+					'not_found_in_trash' => 'No Coaches Notes found in Trash', 
+					'parent_item_colon' => '',
+					'menu_name' => 'Coaches Notes'
+				),
+				'description' => 'This post type is for the four different sections on the home page.',
+				'public' => false,
+				'exclude_from_search' => true,
+				'publicly_queryable' => false,
+				'show_ui' => true,
+				'show_in_nav_menus' => true,
+				'show_in_menu' => true,
+				'show_in_admin_bar' => true,
+				'menu_position' => 25,
+				'menu_icon' => null,
+				'map_meta_cap' => true,
+				'hierarchical' => false,
+				'supports' => array( 'title'),
+				'has_archive' => false,
+				'rewrite' => array( 'slug' => 'ihn-coaches-notes' ),
+				'query_var' => false,
+				'can_export' => true,
+			)
+		);
+
+		register_post_type( 'ihn-md-notes',
+			array(
+				'labels' => array(
+					'name' => 'MD Notes',
+					'singular_name' => 'MD Note',
+					'add_new' => 'Add New',
+					'add_new_item' => 'Add New MD Note',
+					'edit_item' => 'Edit MD Note',
+					'new_item' => 'New MD Note',
+					'all_items' => 'All MD Notes',
+					'view_item' => 'View MD Note',
+					'search_items' => 'Search MD Notes',
+					'not_found' =>  'No MD Notes found',
+					'not_found_in_trash' => 'No MD Notes found in Trash', 
+					'parent_item_colon' => '',
+					'menu_name' => 'MD Notes'
+				),
+				'description' => 'This post type is for the four different sections on the home page.',
+				'public' => false,
+				'exclude_from_search' => true,
+				'publicly_queryable' => false,
+				'show_ui' => true,
+				'show_in_nav_menus' => true,
+				'show_in_menu' => true,
+				'show_in_admin_bar' => true,
+				'menu_position' => 27,
+				'menu_icon' => null,
+				'map_meta_cap' => true,
+				'hierarchical' => false,
+				'supports' => array( 'title'),
+				'has_archive' => false,
+				'rewrite' => array( 'slug' => 'ihn-md-notes' ),
+				'query_var' => false,
+				'can_export' => true,
+			)
+		);
+
+		// Add another custom post type here. Prolly don't need another until version 2.0.
 	}
 
 
