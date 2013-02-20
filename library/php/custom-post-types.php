@@ -71,7 +71,7 @@ add_action( 'init', 'as_register_custom_post_types');
 				'menu_icon' => null,
 				'map_meta_cap' => true,
 				'hierarchical' => false,
-				'supports' => array( 'title'),
+				'supports' => array( 'title','editor','revisions','comments'),
 				'has_archive' => false,
 				'rewrite' => array( 'slug' => 'ihn-coaches-notes' ),
 				'query_var' => false,
@@ -108,7 +108,7 @@ add_action( 'init', 'as_register_custom_post_types');
 				'menu_icon' => null,
 				'map_meta_cap' => true,
 				'hierarchical' => false,
-				'supports' => array( 'title'),
+				'supports' => array( 'title','editor','revisions','comments'),
 				'has_archive' => false,
 				'rewrite' => array( 'slug' => 'ihn-md-notes' ),
 				'query_var' => false,
@@ -188,6 +188,78 @@ function save_measurements_meta(){
     update_post_meta($post->ID, "neck", $_POST["neck"]);
     update_post_meta($post->ID, "clothing_size", $_POST["clothing_size"]);
 }
+
+//coach note meta
+add_action( 'admin_init', 'as_ihn_coach_meta' );
+function as_ihn_coach_meta () {
+	add_meta_box("ihn_coach_meta", "Coaches Notes", "as_ihn_coach_fields", "ihn-coach-notes", "normal", "core");
+}
+function as_ihn_coach_fields () {
+	global $post;
+	$values = get_post_custom( $post->ID );
+	$coach_notes = array(
+		'journal' => $values["journal"][0],
+		'protocol' => $values["protocol"][0],
+		'coach-selected' => $values["coach-selected"][0],
+		'actual-coach' => $values["actual-coach"][0]
+	); ?>
+
+	<p>
+		<label>Did client bring and fill out journal?<br>
+			<input type="radio" name="journal" value="<?php echo $coach_notes['journal'] ?>"> Yes<br>
+			<input type="radio" name="journal" value="<?php echo $coach_notes['journal'] ?>"> No<br>
+		</label><br>
+		<label>Did client follow protocol as prescribed?<br>
+			<input type="radio" name="protocol" value="<?php echo $coach_notes['protocol'] ?>"> Yes<br>
+			<input type="radio" name="protocol" value="<?php echo $coach_notes['protocol'] ?>"> No<br>
+		</label><br>
+		<label>Coach Selected<br>
+			<select name="coach-selected">
+				<option value="<?php echo $coach_notes['coach-selected'] ?>"> <?php wp_dropdown_users(array('name' => 'coach-selected')); ?></option>
+			</select><br>
+		</label><br>
+		<label> This was the logged in coach. It may be different than the selected coach above.<br>
+			<input type="text" readonly="readonly" name="actual-coach" value="<?php echo $coach_notes['actual-coach'] ?>">
+		</label>
+	</p>
+	<?php
+}
+	add_action ('save_post', 'save_coach_meta');
+	add_action ('publish_post', 'save_coach_meta');
+
+	function save_coach_meta () {
+		global $post;
+		update_post_meta($post->ID, "journal", $_POST["journal"]);
+    	update_post_meta($post->ID, "protocol", $_POST["protocol"]);
+    	update_post_meta($post->ID, "coach-selected", $_POST["coach-selected"]);
+    	update_post_meta($post->ID, "actual-coach", $_POST["actual-coach"]);
+	}
+
+//md note meta
+add_action( 'admin_init', 'as_ihn_md_meta' );
+function as_ihn_md_meta () {
+	add_meta_box("ihn_md_meta", "MD Notes", "as_ihn_md_fields", "ihn-md-notes", "normal", "core");
+}
+function as_ihn_md_fields () {
+	global $post;
+	$values = get_post_custom( $post->ID );
+	$md_notes = array(
+		'actual-login' => $values["actual-login"][0]
+	); ?>
+
+	<p>
+		<label> This was the logged in user that created this note. It may differ from the actual person that wrote the note.<br>
+			<input type="text" readonly="readonly" name="actual-login" value="<?php echo $md_notes['actual-login'] ?>">
+		</label>
+	</p>
+	<?php
+}
+add_action ('save_post', 'save_md_meta');
+add_action ('publish_post', 'save_md_meta');
+function save_md_meta () {
+	global $post;
+	update_post_meta($post->ID, "actual-login", $_POST["actual-login"]);
+	}
 /*----------------------------------------------------------
                     The Contextual Help
 ----------------------------------------------------------*/
